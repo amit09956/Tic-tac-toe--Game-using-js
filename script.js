@@ -14,9 +14,16 @@ const winningCo = [[0, 1, 2],
 [2, 4, 6]
 ];
 const resetGame = () => {
+
+    boxes.forEach((box)=>{
+        box.style.backgroundColor="";
+        box.innerText="";
+
+    });
     turn0 = true;
     enableGame();
     msgContainer.classList.add("hide ");
+   
 }
 boxes.forEach((box) => {
 
@@ -29,6 +36,7 @@ boxes.forEach((box) => {
            
 
             turn0 = false;
+            box.style.backgroundColor="red";
         } else {
 
             box.innerText = "X";
@@ -37,6 +45,7 @@ boxes.forEach((box) => {
            
 
             turn0 = true;
+            box.style.backgroundColor="blue";
         }
         box.disabled = true;
         checkWinner();
